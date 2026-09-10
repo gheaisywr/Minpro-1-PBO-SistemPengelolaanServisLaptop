@@ -648,12 +648,58 @@ Jika pilihan yang dimasukkan tidak tersedia, program akan menjalankan bagian `de
 Berikut merupakan dokumentasi tampilan program ketika dijalankan melalui terminal.
 
 ## Percobaan Sistem
+Pengujian dilakukan untuk memastikan setiap fitur pada Sistem Pengelolaan Servis Laptop dapat berjalan sesuai dengan fungsi yang telah dibuat. Pengujian meliputi proses penambahan data, menampilkan data, mengubah data, mencari data, menghapus data, serta pengujian validasi input.
 
-fsadasd
+#### 1. Tambah Data
+Pada pengujian ini, pengguna memilih menu 1. Tambah Data Servis, kemudian memasukkan data pelanggan, laptop, dan servis. Program berhasil menerima data yang dimasukkan dan menampilkan pesan “Data servis berhasil ditambahkan!”. Hal ini menunjukkan bahwa proses penambahan data berhasil dilakukan.
 
-Menu utama menampilkan seluruh pilihan yang dapat digunakan pengguna untuk mengelola data servis laptop.
+<img width="226" height="147" alt="Screenshot 2026-09-10 182225" src="https://github.com/user-attachments/assets/8777a9cc-9b84-4763-9083-ecf7b7cb0530" />
 
+<img width="208" height="317" alt="Screenshot 2026-09-10 182840" src="https://github.com/user-attachments/assets/16c7250a-ac7c-46e4-a91b-88fb23d5d6a3" />
+
+
+
+#### 2. Tampilkan Data
+Setelah data berhasil ditambahkan, pengguna memilih menu 2. Tampilkan Data Servis. Program berhasil menampilkan data pelanggan, laptop, dan servis yang sebelumnya telah dimasukkan. Data yang ditampilkan meliputi ID servis, tanggal masuk, pelanggan, laptop, kerusakan, status, dan biaya.
+<img width="224" height="248" alt="Screenshot 2026-09-10 182858" src="https://github.com/user-attachments/assets/b4f712ed-17ae-47bc-a2d6-4a3891f6042c" />
+
+
+#### 3. Ubah Data
+Pengguna memilih menu 3. Ubah Data Servis dan memasukkan ID servis 056. Program berhasil menemukan data tersebut dan memungkinkan pengguna mengubah status servis dari Menunggu menjadi Diproses, serta mengubah biaya servis dari Rp200000 menjadi Rp205000. Program kemudian menampilkan pesan “Data servis berhasil diubah!”.
+<img width="241" height="223" alt="Screenshot 2026-09-10 182949" src="https://github.com/user-attachments/assets/573df60c-1c07-4bb9-8768-ab63784ebd4c" />
+
+
+#### 4. Cari Data
+Pada menu 5. Cari Data Servis, pengguna memasukkan ID servis 056. Program berhasil menemukan dan menampilkan data servis yang dicari. Hasil pencarian menunjukkan bahwa data telah menggunakan status dan biaya terbaru setelah dilakukan perubahan.
+
+<img width="198" height="200" alt="Screenshot 2026-09-10 183104" src="https://github.com/user-attachments/assets/9f7ebca4-4dfe-4958-bee7-57358fca70db" />
+
+#### 5. Hapus Data
+Pengguna memilih menu 4. Hapus Data Servis dan memasukkan ID servis 056. Sebelum data dihapus, program meminta konfirmasi melalui pilihan y/n. Setelah pengguna memilih y, program menampilkan pesan “Data servis berhasil dihapus!”. Pengujian kemudian dilanjutkan dengan memilih menu tampil data dan program menunjukkan “Belum ada data servis.” Hal ini membuktikan bahwa data berhasil dihapus.
+
+<img width="242" height="83" alt="Screenshot 2026-09-10 183137" src="https://github.com/user-attachments/assets/2a90cbac-7d58-46d8-8269-c63e1a0e1efb" />
+
+<img width="149" height="56" alt="Screenshot 2026-09-10 183204" src="https://github.com/user-attachments/assets/b66b8230-305a-40da-bf84-3f19f9f5fce0" />
+
+
+#### 6. Pengujian Validasi Input
+Program juga diuji menggunakan input yang tidak sesuai. Pada pengujian nomor telepon, pengguna memasukkan wda, kemudian program menampilkan pesan “No. Telepon hanya boleh berisi angka!”. Program kemudian meminta pengguna memasukkan nomor telepon kembali.
+
+Selain itu, pada pengujian status servis, pengguna memasukkan huruf g ketika sistem meminta pilihan status. Program menampilkan pesan “Input harus berupa angka!” sehingga pengguna harus memasukkan pilihan yang sesuai.
+
+<img width="218" height="101" alt="Screenshot 2026-09-10 183331" src="https://github.com/user-attachments/assets/bb7b2780-c61b-4b41-a152-a200b1b714d3" />
+
+<img width="146" height="79" alt="Screenshot 2026-09-10 183532" src="https://github.com/user-attachments/assets/3c0a5f67-3736-4ae4-b7ad-b383ee01e508" />
+
+#### 7. Keluar
 Program akan kembali ke menu utama setelah pengguna menyelesaikan suatu proses. Program hanya akan berhenti ketika pengguna memilih **6. Keluar**.
+
+<img width="219" height="44" alt="Screenshot 2026-09-10 183217" src="https://github.com/user-attachments/assets/beedad0d-066c-40aa-937f-533c9928536a" />
+
+
+Kesimpulan Percobaan:
+Berdasarkan hasil pengujian, fitur utama program dapat berjalan sesuai dengan fungsi yang dirancang. Proses tambah, tampil, ubah, cari, dan hapus data berhasil dilakukan. Validasi input juga berjalan ketika pengguna memasukkan data yang tidak sesuai, sehingga program dapat mengurangi kesalahan dalam proses penginputan data.
+
 
 ---
 
