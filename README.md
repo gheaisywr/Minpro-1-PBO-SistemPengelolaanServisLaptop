@@ -1,81 +1,668 @@
 # Sistem Pengelolaan Servis Laptop
-
+Nama : Ghea Aisyah Windraswari\
+NIM  : 2509116022
 ## Deskripsi Program
 
-Sistem Pengelolaan Servis Laptop adalah program sederhana berbasis Java yang dibuat untuk membantu mencatat dan mengelola data servis laptop pada toko atau tempat servis.
+**Sistem Pengelolaan Servis Laptop** merupakan program berbasis Java yang dibuat untuk membantu proses pengelolaan data servis laptop secara sederhana dan terstruktur melalui terminal.
 
-Program berjalan melalui terminal (command line) dan menyediakan beberapa proses pengelolaan data, yaitu menambah, menampilkan, mengubah, menghapus, dan mencari data servis.
+Program ini digunakan untuk mengelola tiga jenis data utama, yaitu **data pelanggan, data laptop, dan data servis**. Data pelanggan digunakan untuk menyimpan informasi pemilik laptop, data laptop digunakan untuk menyimpan informasi perangkat yang akan diservis, sedangkan data servis digunakan untuk menyimpan informasi mengenai proses servis laptop.
 
-Data yang dikelola dalam program dibagi menjadi tiga bagian:
+Program memiliki beberapa fitur utama, yaitu **Tambah Data Servis, Tampilkan Data Servis, Ubah Data Servis, Hapus Data Servis, dan Cari Data Servis**. Dengan adanya fitur tersebut, pengguna dapat melakukan pengelolaan data servis tanpa perlu mengubah data secara langsung melalui kode program.
 
-- **Data Pelanggan**: ID pelanggan, nama, nomor telepon, dan alamat.
-- **Data Laptop**: ID laptop, merek, tipe, dan keterangan kerusakan.
-- **Data Servis**: ID servis, tanggal masuk, status pengerjaan, dan biaya servis.
+Program dibuat menggunakan bahasa pemrograman **Java** dengan menerapkan konsep **Pemrograman Berorientasi Objek (PBO)**. Konsep PBO yang diterapkan meliputi class, object, constructor, encapsulation, access modifier, getter dan setter. Program juga menggunakan `ArrayList` sebagai tempat penyimpanan data selama program dijalankan.
 
-Program ini dibuat menggunakan bahasa **Java** dengan menerapkan konsep **Pemrograman Berorientasi Objek (PBO)**. Class yang digunakan terdiri dari `Pelanggan`, `Laptop`, `Servis`, dan `ServisLaptop` sebagai class utama yang menjalankan menu dan mengatur jalannya program.
+---
 
-## Fitur Program
+# Penjelasan Alur Program
 
-1. **Tambah Data Servis**  
-   Menambahkan data pelanggan, laptop, dan servis baru.
+## 1. Penyimpanan Data Menggunakan ArrayList
 
-2. **Tampilkan Data Servis**  
-   Menampilkan seluruh data servis yang telah tersimpan.
+Program menggunakan `ArrayList` untuk menyimpan kumpulan data pelanggan, laptop, dan servis. Masing-masing `ArrayList` digunakan untuk menyimpan object berdasarkan class yang sesuai.
 
-3. **Ubah Data Servis**  
-   Mengubah informasi status, biaya, dan kerusakan laptop.
+```java
+static ArrayList<Pelanggan> daftarPelanggan = new ArrayList<>();
+static ArrayList<Laptop> daftarLaptop = new ArrayList<>();
+static ArrayList<Servis> daftarServis = new ArrayList<>();
+```
 
-4. **Hapus Data Servis**  
-   Menghapus data servis berdasarkan ID servis.
+`daftarPelanggan` digunakan untuk menyimpan object dari class `Pelanggan`, `daftarLaptop` digunakan untuk menyimpan object dari class `Laptop`, sedangkan `daftarServis` digunakan untuk menyimpan object dari class `Servis`.
 
-5. **Cari Data Servis**  
-   Mencari data servis berdasarkan ID servis.
+Penggunaan `ArrayList` memungkinkan program untuk menyimpan beberapa data dan melakukan proses penambahan maupun penghapusan data selama program berjalan.
 
-6. **Keluar Program**  
-   Mengakhiri program melalui menu keluar.
+### Dokumentasi ArrayList
+<img width="403" height="44" alt="ArrayList" src="https://github.com/user-attachments/assets/e1fba7c3-762a-475f-99fa-98aac2312a22" />
 
-7. **Validasi Input**  
-   Memastikan data yang dimasukkan sesuai dengan ketentuan, seperti input tidak boleh kosong, nomor telepon harus berupa angka, biaya tidak boleh negatif, dan ID tidak boleh duplikat.
 
-8. **Konfirmasi Penghapusan**  
-   Meminta konfirmasi pengguna sebelum data servis dihapus untuk mencegah penghapusan secara tidak sengaja.
+---
 
-## Konsep PBO yang Diterapkan
+## 2. Class dan Object
 
-Program menerapkan beberapa konsep dasar Pemrograman Berorientasi Objek, yaitu:
+Program memiliki tiga class entity utama, yaitu `Pelanggan`, `Laptop`, dan `Servis`. Ketiga class tersebut digunakan untuk mengelompokkan data sesuai dengan fungsi masing-masing.
 
-- **Class dan Object**
-- **Constructor**
-- **Encapsulation**
-- **Access Modifier**
-- **Getter dan Setter**
-- **ArrayList**
-- **Percabangan**
-- **Perulangan**
-- **Validasi Input**
+### Class Pelanggan
 
-## Alur Program
+Class `Pelanggan` digunakan untuk menyimpan informasi mengenai pelanggan yang menggunakan layanan servis laptop.
+
+Atribut yang terdapat pada class `Pelanggan` yaitu:
+
+- `idPelanggan`
+- `nama`
+- `noTelepon`
+- `alamat`
+
+Contoh penerapannya:
+
+```java
+public class Pelanggan {
+
+    private String idPelanggan;
+    private String nama;
+    private String noTelepon;
+    private String alamat;
+}
+```
+
+### Dokumentasi Class Pelanggan
+<img width="200" height="89" alt="class pelanggan" src="https://github.com/user-attachments/assets/8d756e78-36b0-422f-8265-98be1ccd3fbf" />
+
+
+
+
+### Class Laptop
+
+Class `Laptop` digunakan untuk menyimpan informasi mengenai laptop yang akan diservis.
+
+Atribut yang terdapat pada class `Laptop` yaitu:
+
+- `idLaptop`
+- `merk`
+- `tipe`
+- `kerusakan`
+
+### Dokumentasi Class Laptop
+<img width="188" height="89" alt="class laptop" src="https://github.com/user-attachments/assets/46668e24-f877-4925-a462-6742eba2c3e2" />
+
+
+
+### Class Servis
+
+Class `Servis` digunakan untuk menyimpan informasi mengenai proses servis laptop.
+
+Atribut yang terdapat pada class `Servis` yaitu:
+
+- `idServis`
+- `tanggalMasuk`
+- `status`
+- `biaya`
+
+### Dokumentasi Class Servis
+<img width="202" height="86" alt="class servis" src="https://github.com/user-attachments/assets/22e99525-b54c-447f-92c1-abe93682bc68" />
+
+
+
+
+---
+
+## 3. Constructor
+
+Setiap class entity memiliki constructor yang digunakan untuk memberikan nilai awal pada atribut ketika sebuah object dibuat.
+
+### Constructor Class Pelanggan
+
+Constructor pada class `Pelanggan` menerima parameter berupa ID pelanggan, nama, nomor telepon, dan alamat.
+
+```java
+public Pelanggan(String idPelanggan, String nama, String noTelepon, String alamat) {
+    this.idPelanggan = idPelanggan;
+    this.nama = nama;
+    this.noTelepon = noTelepon;
+    this.alamat = alamat;
+}
+```
+
+### Dokumentasi Constructor Pelanggan
+<img width="532" height="103" alt="constructor Pelanggan" src="https://github.com/user-attachments/assets/0cb701a6-2ff8-4cfa-ba68-4473931b3929" />
+
+
+
+### Constructor Class Laptop
+
+Constructor pada class `Laptop` digunakan untuk memberikan nilai awal berupa ID laptop, merek, tipe, dan kerusakan.
+
+```java
+public Laptop(String idLaptop, String merk, String tipe, String kerusakan) {
+    this.idLaptop = idLaptop;
+    this.merk = merk;
+    this.tipe = tipe;
+    this.kerusakan = kerusakan;
+}
+```
+
+### Dokumentasi Constructor Laptop
+
+<img width="475" height="95" alt="constructor Laptop" src="https://github.com/user-attachments/assets/c6be4fff-b917-41c4-9056-a148797facb2" />
+
+
+### Constructor Class Servis
+
+Constructor pada class `Servis` digunakan untuk memberikan nilai awal berupa ID servis, tanggal masuk, status, dan biaya.
+
+```java
+public Servis(String idServis, String tanggalMasuk, String status, double biaya) {
+    this.idServis = idServis;
+    this.tanggalMasuk = tanggalMasuk;
+    this.status = status;
+    this.biaya = biaya;
+}
+```
+<img width="403" height="44" alt="ArrayList" src="https://github.com/user-attachments/assets/1cfb2c5d-a3ed-4c3e-93fe-0f819acfc9fb" />
+
+### Dokumentasi Constructor Servis
+<img width="512" height="98" alt="constructor Servis" src="https://github.com/user-attachments/assets/ee04eff7-4131-484e-bf75-0bb0300928e8" />
+
+
+---
+
+## 4. Proses Pembuatan Object
+
+Pada saat proses tambah data servis, program membuat object dari masing-masing class menggunakan constructor yang telah dibuat.
+
+Object `Pelanggan` dibuat berdasarkan data pelanggan yang telah dimasukkan pengguna.
+
+```java
+Pelanggan pelanggan = new Pelanggan(
+    idPelanggan,
+    nama,
+    noTelepon,
+    alamat
+);
+```
+
+Object `Laptop` dibuat berdasarkan data laptop.
+
+```java
+Laptop laptop = new Laptop(
+    idLaptop,
+    merk,
+    tipe,
+    kerusakan
+);
+```
+
+Object `Servis` dibuat berdasarkan data servis.
+
+```java
+Servis servis = new Servis(
+    idServis,
+    tanggalMasuk,
+    status,
+    biaya
+);
+```
+
+Object yang telah dibuat kemudian dimasukkan ke dalam `ArrayList` sehingga dapat digunakan pada proses selanjutnya, seperti menampilkan, mengubah, menghapus, dan mencari data.
+
+### Dokumentasi Object Pelanggan
+<img width="247" height="88" alt="objek Pelanggan" src="https://github.com/user-attachments/assets/2b682412-2886-43db-850a-54f6b225c77c" />
+
+### Dokumentasi Object Laptop
+<img width="190" height="88" alt="objek Laptop" src="https://github.com/user-attachments/assets/8e9655da-e41e-4372-ba2d-0ce58f5d83ad" />
+
+
+### Dokumentasi Object Servis
+<img width="194" height="88" alt="objek Servis" src="https://github.com/user-attachments/assets/cd88d7d5-ed4e-4bff-a7d5-4874e43ce0fb" />
+
+
+---
+
+## 5. Menu Utama
+
+Ketika program pertama kali dijalankan, sistem akan menampilkan menu utama pada terminal.
+
+Menu utama terdiri dari:
 
 ```text
-Mulai
-  ↓
-Menampilkan Menu Utama
-  ↓
-Memilih Menu
-  ↓
-┌───────────────────────────────┐
-│ 1. Tambah Data Servis         │
-│ 2. Tampilkan Data Servis      │
-│ 3. Ubah Data Servis            │
-│ 4. Hapus Data Servis           │
-│ 5. Cari Data Servis            │
-│ 6. Keluar                      │
-└───────────────────────────────┘
-  ↓
-Menjalankan proses sesuai pilihan
-  ↓
-Kembali ke Menu Utama
-  ↓
-Pilih 6?
-  ├── Tidak → Kembali ke Menu
-  └── Ya → Program Selesai
+1. Tambah Data Servis
+2. Tampilkan Data Servis
+3. Ubah Data Servis
+4. Hapus Data Servis
+5. Cari Data Servis
+6. Keluar
+```
+
+Pengguna dapat memilih menu dengan memasukkan nomor pilihan.
+
+Menu utama dibuat menggunakan perulangan `do-while`. Dengan perulangan tersebut, menu akan terus ditampilkan setelah pengguna menyelesaikan suatu proses.
+
+Program hanya akan berhenti apabila pengguna memilih pilihan **6. Keluar**.
+
+### Dokumentasi Kode Menu Utama
+<img width="431" height="187" alt="menu" src="https://github.com/user-attachments/assets/6d41ebf2-9e61-4249-aa09-c7bfcec2b908" />
+
+### Dokumentasi Output Menu Utama
+<img width="239" height="145" alt="output menu" src="https://github.com/user-attachments/assets/9518cfa8-329e-4312-b2bc-381174f7298c" />
+
+
+
+---
+
+## 6. Percabangan Menu
+
+Setelah pengguna memasukkan pilihan menu, program menggunakan percabangan `switch-case` untuk menentukan proses yang akan dijalankan.
+
+Contoh kode:
+
+```java
+switch (pilihan) {
+
+    case 1:
+        tambahDataServis();
+        break;
+
+    case 2:
+        tampilkanDataServis();
+        break;
+
+    case 3:
+        ubahDataServis();
+        break;
+
+    case 4:
+        hapusDataServis();
+        break;
+
+    case 5:
+        cariDataServis();
+        break;
+
+    case 6:
+        System.out.println("\nProgram selesai. Terima kasih!");
+        break;
+
+    default:
+        System.out.println("\nMenu tidak tersedia!");
+}
+```
+
+Jika pengguna memilih angka `1`, program menjalankan method `tambahDataServis()`.
+
+Jika pengguna memilih angka `2`, program menjalankan method `tampilkanDataServis()`.
+
+Begitu pula dengan pilihan lainnya. Jika pengguna memasukkan pilihan yang tidak tersedia, bagian `default` akan dijalankan dan program menampilkan pesan bahwa menu tidak tersedia.
+
+### Dokumentasi Percabangan
+<img width="399" height="396" alt="percabangan" src="https://github.com/user-attachments/assets/fde7a77a-03ae-4c3b-86fe-ecceb743dac4" />
+
+
+
+---
+
+## 7. Proses Tambah Data Servis
+
+Proses tambah data dijalankan ketika pengguna memilih menu **1. Tambah Data Servis**.
+
+Program akan meminta pengguna memasukkan data pelanggan terlebih dahulu.
+
+Data pelanggan terdiri dari:
+
+- ID Pelanggan
+- Nama Pelanggan
+- Nomor Telepon
+- Alamat
+
+Selanjutnya pengguna memasukkan data laptop yang akan diservis, yaitu:
+
+- ID Laptop
+- Merek Laptop
+- Tipe Laptop
+- Kerusakan
+
+Setelah itu pengguna memasukkan data servis yang terdiri dari:
+
+- ID Servis
+- Tanggal Masuk
+- Status
+- Biaya
+
+Setiap data yang dimasukkan akan melalui proses validasi. Setelah data dinyatakan valid, program membuat object `Pelanggan`, `Laptop`, dan `Servis`.
+
+Object tersebut kemudian disimpan ke dalam `ArrayList`.
+
+Dengan proses ini, data yang dimasukkan pengguna dapat digunakan kembali pada fitur tampil, ubah, hapus, dan cari data.
+
+---
+
+## 8. Proses Tampilkan Data Servis
+
+Pada menu **2. Tampilkan Data Servis**, program menampilkan seluruh data yang telah tersimpan.
+
+Program mengambil data dari `ArrayList` kemudian menampilkannya pada terminal.
+
+Untuk mengambil nilai atribut dari object, program menggunakan method getter.
+
+Contohnya:
+
+```java
+System.out.println("ID Servis      : " + servis.getIdServis());
+System.out.println("Tanggal Masuk  : " + servis.getTanggalMasuk());
+
+System.out.println("ID Pelanggan   : " + pelanggan.getIdPelanggan());
+System.out.println("Nama Pelanggan : " + pelanggan.getNama());
+System.out.println("No. Telepon    : " + pelanggan.getNoTelepon());
+System.out.println("Alamat         : " + pelanggan.getAlamat());
+
+System.out.println("ID Laptop      : " + laptop.getIdLaptop());
+System.out.println("Merek Laptop   : " + laptop.getMerk());
+System.out.println("Tipe Laptop    : " + laptop.getTipe());
+System.out.println("Kerusakan      : " + laptop.getKerusakan());
+
+System.out.println("Status         : " + servis.getStatus());
+System.out.println("Biaya          : Rp" + servis.getBiaya());
+```
+
+Penggunaan getter memungkinkan program mengambil data dari atribut yang bersifat `private`.
+
+### Dokumentasi Penggunaan Getter
+<img width="449" height="221" alt="getter" src="https://github.com/user-attachments/assets/b13fae2f-c24f-4cb6-8bb9-372953c70850" />
+
+
+
+---
+
+## 9. Proses Ubah Data Servis
+
+Menu **3. Ubah Data Servis** digunakan untuk mengubah data servis yang telah tersimpan.
+
+Pengguna terlebih dahulu memasukkan ID Servis yang ingin diubah.
+
+Program kemudian melakukan pencarian terhadap ID tersebut. Jika ID Servis ditemukan, pengguna dapat memasukkan data baru untuk menggantikan data sebelumnya.
+
+Data yang telah diubah kemudian disimpan kembali pada object yang bersangkutan.
+
+Jika ID Servis tidak ditemukan, program akan menampilkan informasi bahwa data servis tidak tersedia.
+
+---
+
+## 10. Proses Hapus Data Servis
+
+Menu **4. Hapus Data Servis** digunakan untuk menghapus data servis berdasarkan ID Servis.
+
+Pengguna memasukkan ID Servis yang ingin dihapus. Program kemudian mencari data tersebut.
+
+Jika data ditemukan, program tidak langsung menghapus data. Program terlebih dahulu meminta konfirmasi kepada pengguna.
+
+Contoh kode konfirmasi:
+
+```java
+System.out.print("Yakin ingin menghapus? (y/n): ");
+String konfirmasi = input.nextLine();
+```
+
+Jika pengguna memilih `y`, data akan dihapus dari masing-masing `ArrayList`.
+
+```java
+daftarServis.remove(index);
+daftarPelanggan.remove(index);
+daftarLaptop.remove(index);
+```
+
+Jika pengguna memilih selain `y`, data tidak akan dihapus.
+
+### Dokumentasi Konfirmasi Sebelum Menghapus
+<img width="362" height="155" alt="konfirmasi sebelum menghapus data" src="https://github.com/user-attachments/assets/f41d117c-0071-47ba-9243-5658c357e04b" />
+
+
+
+---
+
+## 11. Proses Cari Data Servis
+
+Menu **5. Cari Data Servis** digunakan untuk mencari data servis berdasarkan ID Servis.
+
+Pengguna cukup memasukkan ID Servis yang ingin dicari. Program kemudian melakukan pencarian terhadap data yang tersimpan.
+
+Jika ID ditemukan, informasi servis yang berkaitan akan ditampilkan kepada pengguna.
+
+Jika ID tidak ditemukan, program akan memberikan pemberitahuan bahwa data tidak tersedia.
+
+Fitur pencarian ini membantu pengguna menemukan data servis tertentu tanpa harus memeriksa seluruh data yang tersimpan.
+
+---
+
+## 12. Perulangan Program
+
+Program menggunakan perulangan agar sistem dapat berjalan secara terus-menerus sampai pengguna memilih menu keluar.
+
+Perulangan `do-while` digunakan pada menu utama.
+
+Contohnya:
+
+```java
+do {
+    // Menampilkan menu
+    // Memasukkan pilihan
+    // Menjalankan proses berdasarkan pilihan
+} while (pilihan != 6);
+```
+
+Selama nilai `pilihan` tidak sama dengan `6`, program akan kembali menampilkan menu utama.
+
+Selain digunakan pada menu utama, perulangan juga digunakan dalam proses validasi input agar pengguna dapat memasukkan kembali data apabila input sebelumnya tidak sesuai.
+
+---
+
+# Penjelasan Letak Penerapan Nilai Tambah
+
+Selain fitur dasar CRUD, program menerapkan beberapa nilai tambah untuk membuat program lebih terstruktur, aman dalam pengelolaan data, dan lebih mudah digunakan.
+
+Nilai tambah yang diterapkan pada program meliputi **encapsulation, access modifier, getter dan setter, validasi input, konfirmasi sebelum penghapusan, fitur pencarian, serta penggunaan perulangan dan percabangan**.
+
+---
+
+## 1. Encapsulation
+
+Encapsulation diterapkan pada class `Pelanggan`, `Laptop`, dan `Servis`.
+
+Atribut pada masing-masing class dibuat menggunakan access modifier `private`.
+
+Contohnya:
+
+```java
+private String idPelanggan;
+private String nama;
+private String noTelepon;
+private String alamat;
+```
+
+Dengan menggunakan `private`, atribut tidak dapat diakses secara langsung dari luar class.
+
+Akses terhadap atribut dilakukan melalui method getter dan setter yang disediakan oleh masing-masing class.
+
+Penerapan ini membuat data di dalam object lebih terkontrol.
+
+### Dokumentasi Encapsulation
+<img width="203" height="89" alt="encapsulation" src="https://github.com/user-attachments/assets/a039a79d-0443-43bb-873b-b8608fd83691" />
+
+
+
+---
+
+## 2. Getter dan Setter
+
+Getter dan setter digunakan untuk mengakses dan mengubah nilai atribut yang bersifat `private`.
+
+Getter digunakan untuk mengambil nilai dari atribut.
+
+Contoh:
+
+```java
+public String getNama() {
+    return nama;
+}
+```
+
+Setter digunakan untuk mengubah nilai atribut.
+
+Contoh:
+
+```java
+public void setNama(String nama) {
+    this.nama = nama;
+}
+```
+
+Getter dan setter diterapkan pada class `Pelanggan`, `Laptop`, dan `Servis`.
+
+### Dokumentasi Getter dan Setter
+<img width="305" height="425" alt="getter setter Pelanggan" src="https://github.com/user-attachments/assets/163ea70b-dc9e-427c-af71-bc6405a6dd69" />
+<img width="314" height="419" alt="getter setter Laptop" src="https://github.com/user-attachments/assets/ed4f534e-241f-4ae7-9511-fa01ebaf31bc" />
+<img width="324" height="422" alt="getter setter Servis" src="https://github.com/user-attachments/assets/a02678a6-ec20-4fc3-9d45-8fd811cbf450" />
+
+
+---
+
+## 3. Access Modifier
+
+Program menggunakan access modifier `private` dan `public`.
+
+Access modifier `private` digunakan pada atribut class entity untuk membatasi akses langsung dari luar class.
+
+Sementara itu, access modifier `public` digunakan pada class, constructor, getter, setter, dan method yang perlu digunakan oleh bagian program lainnya.
+
+Penerapan access modifier tersebut mendukung konsep encapsulation dalam program.
+
+---
+
+## 4. Validasi Input
+
+Program menerapkan validasi input untuk memastikan data yang dimasukkan pengguna sesuai dengan ketentuan.
+
+Beberapa validasi yang diterapkan antara lain:
+
+- ID Pelanggan tidak boleh kosong.
+- ID Pelanggan tidak boleh digunakan lebih dari satu kali.
+- Nama Pelanggan tidak boleh kosong.
+- Nomor Telepon tidak boleh kosong.
+- Nomor Telepon hanya boleh berisi angka.
+- Biaya servis tidak boleh bernilai negatif.
+- Pilihan menu harus sesuai dengan pilihan yang tersedia.
+- Data tertentu harus diisi sebelum dapat diproses.
+
+Contoh validasi ID Pelanggan:
+
+```java
+if (idPelanggan.isEmpty()) {
+    System.out.println("ID Pelanggan tidak boleh kosong!");
+}
+```
+
+Contoh validasi nama:
+
+```java
+if (nama.isEmpty()) {
+    System.out.println("Nama tidak boleh kosong!");
+}
+```
+
+Contoh validasi nomor telepon:
+
+```java
+else if (!noTelepon.matches("\\d+")) {
+    System.out.println("No. Telepon hanya boleh berisi angka!");
+}
+```
+
+Validasi tersebut dilakukan menggunakan perulangan sehingga pengguna dapat memasukkan kembali data sampai input yang diberikan sesuai dengan ketentuan.
+
+### Dokumentasi Validasi ID Pelanggan
+<img width="353" height="77" alt="validasi id pelanggan" src="https://github.com/user-attachments/assets/c9ea352f-144a-477a-b450-b2d0afbfe845" />
+
+
+
+### Dokumentasi Validasi Nama
+<img width="362" height="127" alt="validasi nama" src="https://github.com/user-attachments/assets/5b285636-2095-4a10-95ed-3f30a76f136c" />
+
+
+### Dokumentasi Validasi Nomor Telepon
+<img width="445" height="113" alt="validasi input no telp" src="https://github.com/user-attachments/assets/159a4dd7-1a0c-4798-b363-a95bbf7e2991" />
+
+
+---
+
+## 5. Konfirmasi Sebelum Menghapus Data
+
+Sebagai nilai tambah, program memberikan konfirmasi sebelum melakukan penghapusan data.
+
+Pengguna harus memberikan pilihan `y` untuk melanjutkan proses penghapusan.
+
+Jika pengguna memilih `n`, data tidak akan dihapus.
+
+Fitur ini digunakan untuk mengurangi kemungkinan data terhapus secara tidak sengaja.
+
+### Dokumentasi Konfirmasi Penghapusan
+<img width="362" height="155" alt="konfirmasi sebelum menghapus data" src="https://github.com/user-attachments/assets/daaf26e5-5526-470b-b92d-ac4fae4cd47d" />
+
+
+
+---
+
+## 6. Fitur Pencarian Data
+
+Program menyediakan fitur pencarian data servis berdasarkan ID Servis.
+
+Fitur ini menjadi nilai tambah karena pengguna dapat menemukan data tertentu dengan lebih mudah tanpa harus melihat seluruh data servis satu per satu.
+
+Proses pencarian dilakukan dengan memeriksa ID Servis yang dimasukkan pengguna terhadap data yang telah tersimpan.
+
+---
+
+## 7. Penerapan Perulangan
+
+Perulangan diterapkan agar program dapat berjalan secara berulang.
+
+Perulangan `do-while` digunakan untuk menjalankan menu utama sampai pengguna memilih menu **6. Keluar**.
+
+Perulangan juga digunakan dalam proses validasi input sehingga pengguna dapat memperbaiki input apabila terjadi kesalahan.
+
+Dengan adanya perulangan, program tidak langsung berhenti setelah satu proses selesai dan pengguna dapat melakukan beberapa proses dalam satu kali menjalankan program.
+
+---
+
+## 8. Penerapan Percabangan
+
+Percabangan `switch-case` digunakan untuk menentukan proses berdasarkan pilihan menu yang dimasukkan pengguna.
+
+Setiap pilihan menu memiliki proses yang berbeda, seperti tambah, tampil, ubah, hapus, dan cari data.
+
+Jika pilihan yang dimasukkan tidak tersedia, program akan menjalankan bagian `default` dan menampilkan pesan bahwa menu tidak tersedia.
+
+### Dokumentasi Percabangan
+<img width="399" height="396" alt="percabangan" src="https://github.com/user-attachments/assets/4122e9b4-5ac1-4700-b0fa-02d94ae40f20" />
+
+
+
+---
+
+# Dokumentasi Output Program
+
+Berikut merupakan dokumentasi tampilan program ketika dijalankan melalui terminal.
+
+## Percobaan Sistem
+
+fsadasd
+
+Menu utama menampilkan seluruh pilihan yang dapat digunakan pengguna untuk mengelola data servis laptop.
+
+Program akan kembali ke menu utama setelah pengguna menyelesaikan suatu proses. Program hanya akan berhenti ketika pengguna memilih **6. Keluar**.
+
+---
+
+# Kesimpulan
+
+Sistem Pengelolaan Servis Laptop merupakan program berbasis Java yang dibuat untuk membantu proses pengelolaan data pelanggan, data laptop, dan data servis melalui terminal.
+
+Program menyediakan fitur utama berupa tambah data, tampilkan data, ubah data, hapus data, dan cari data servis. Data yang dimasukkan pengguna disimpan menggunakan `ArrayList` dan dikelola berdasarkan object dari class `Pelanggan`, `Laptop`, dan `Servis`.
+
+Dalam penerapannya, program menggunakan konsep Pemrograman Berorientasi Objek seperti class, object, constructor, encapsulation, access modifier, getter dan setter. Program juga menerapkan percabangan dan perulangan untuk mengatur alur proses serta validasi input untuk memastikan data yang dimasukkan sesuai dengan ketentuan.
+
+Nilai tambah yang diterapkan dalam program meliputi validasi input, pencarian data berdasarkan ID Servis, serta konfirmasi sebelum penghapusan data. Dengan adanya fitur-fitur tersebut, program menjadi lebih terstruktur dan memberikan pengalaman penggunaan yang lebih baik dalam mengelola data servis laptop.
