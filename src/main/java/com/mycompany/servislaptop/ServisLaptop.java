@@ -1,3 +1,8 @@
+    // ==============================
+    // Nama : Ghea Aisyah Windraswari
+    // NIM  : 2509115022
+    // ==============================
+
 package com.mycompany.servislaptop;
 
 import java.util.ArrayList;
@@ -111,9 +116,11 @@ public class ServisLaptop {
 
             if (noTelepon.isEmpty()) {
                 System.out.println("No. Telepon tidak boleh kosong!");
+            } else if (!noTelepon.matches("\\d+")) {
+                System.out.println("No. Telepon hanya boleh berisi angka!");
             }
 
-        } while (noTelepon.isEmpty());
+        } while (noTelepon.isEmpty() || !noTelepon.matches("\\d+"));
 
         String alamat;
 
@@ -425,14 +432,20 @@ public class ServisLaptop {
             System.out.println("ID Servis tidak ditemukan.");
             return;
         }
+            System.out.print("Yakin ingin menghapus? (y/n): ");
+            String konfirmasi = input.nextLine();
 
-        daftarServis.remove(index);
-        daftarPelanggan.remove(index);
-        daftarLaptop.remove(index);
+        if (konfirmasi.equalsIgnoreCase("y")) {
+            daftarServis.remove(index);
+            daftarPelanggan.remove(index);
+            daftarLaptop.remove(index);
 
-        System.out.println("Data servis berhasil dihapus!");
-    }
-
+            System.out.println("Data servis berhasil dihapus!");
+    }   else {
+            System.out.println("Data tidak jadi dihapus.");
+}
+}
+    
     // ==============================
     // CARI DATA SERVIS
     // ==============================

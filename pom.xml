@@ -10,4 +10,5 @@
         <maven.compiler.release>26</maven.compiler.release>
         <exec.mainClass>com.mycompany.pengelolaanservislaptopmp1.PengelolaanServisLaptopMP1</exec.mainClass>
     </properties>
+    <name>ServisLaptop</name>
 </project>
